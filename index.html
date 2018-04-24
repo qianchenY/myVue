@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="test">
+    <input type="text" value="bbb" name="" id="" v-modal="mingzi">
+    <input type="text" value="bbb" name="" id="" v-modal="mingzi">
+    <input v-on:click="submit" type="submit" value="提交">
+</div>
+<script src="./myVue.js"></script>
+<script>
+    var vue = new myVue({
+        el: "test",
+        data: {
+            mingzi: "qianchen"
+        },
+        methods: {
+            submit: function(e){
+                e.preventDefault();
+                
+                console.log(this.data.mingzi);
+            }
+        }
+    })
+</script>
+</body>
+</html>
