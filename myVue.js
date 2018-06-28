@@ -3,7 +3,9 @@ class myVue{
         // option参数深复制 有bug
         this.option = option;
         for(let key in option){
-            this[key] = JSON.parse(JSON.stringify(option[key]));
+            if(option.hasOwnProperty(key)){
+                this[key] = JSON.parse(JSON.stringify(option[key]));
+            }     
         }
         this.init();
     }
@@ -48,6 +50,7 @@ class myVue{
                             elc.setAttribute("value", this.data[name]);
                             elc.addEventListener("input", (e)=>{
                                 this.data[name] = e.target.value;
+                                this.option.data[name] = e.target.value;
                             })
                         }
                     })()
